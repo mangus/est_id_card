@@ -52,6 +52,7 @@ class auth_plugin_est_id_card extends auth_plugin_base {
 
     /** Creates "login with ID-card" link to Moodle login page */
     function loginpage_idp_list($wantsurl) {
+        global $CFG;
         return array(
             array(
                 'url' => new moodle_url($CFG->wwwroot . '/auth/est_id_card/login.php'),
