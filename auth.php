@@ -24,13 +24,20 @@ class auth_plugin_est_id_card extends auth_plugin_base {
     }
 
     private function id_card_inserted()
-    {   // TODO
-        return false;
+    {
+        return isset($_SERVER['SSL_CLIENT_S_DN']);
     }
 
     private function get_id_number()
-    {   // TODO
-        return '38401275724';
+    {   // TODO: test
+        $parts = explode(',', $_SERVER['SSL_CLIENT_S_DN_CN']);
+        $idnumber = $parts[2];
+        if (strlen($idnumber) == 11)
+            return $idnumber;
+        else
+        {
+            echo 'Unsupported ID-card data: ' . $_SERVER['SSL_CLIENT_S_DN'];
+        }
     }
 
     /** Real authentication here */
