@@ -23,13 +23,11 @@ class auth_plugin_est_id_card extends auth_plugin_base {
         return false;
     }
 
-    private function id_card_inserted()
-    {
+    private function id_card_inserted() {
         return isset($_SERVER['SSL_CLIENT_S_DN']);
     }
 
-    private function get_id_number()
-    {   // TODO: test
+    private function get_id_number() {
         $expression = '~/serialNumber=([0-9]{11})~';
         if (preg_match($expression, $_SERVER['SSL_CLIENT_S_DN'], $matches))
             return $matches[1];
