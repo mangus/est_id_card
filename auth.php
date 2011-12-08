@@ -30,14 +30,11 @@ class auth_plugin_est_id_card extends auth_plugin_base {
 
     private function get_id_number()
     {   // TODO: test
-        $parts = explode(',', $_SERVER['SSL_CLIENT_S_DN_CN']);
-        $idnumber = $parts[2];
-        if (strlen($idnumber) == 11)
-            return $idnumber;
+        $expression = '~/serialNumber=([0-9]{11})~';
+        if (preg_match($expression, $_SERVER['SSL_CLIENT_S_DN'], $matches))
+            return $matches[1];
         else
-        {
             echo 'Unsupported ID-card data: ' . $_SERVER['SSL_CLIENT_S_DN'];
-        }
     }
 
     /** Real authentication here */
