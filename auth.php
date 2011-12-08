@@ -32,7 +32,7 @@ class auth_plugin_est_id_card extends auth_plugin_base {
         if (preg_match($expression, $_SERVER['SSL_CLIENT_S_DN'], $matches))
             return $matches[1];
         else
-            echo 'Unsupported ID-card data: ' . $_SERVER['SSL_CLIENT_S_DN'];
+            throw new Exception('Unsupported ID-card data: ' . $_SERVER['SSL_CLIENT_S_DN']);
     }
 
     /** Real authentication here */
