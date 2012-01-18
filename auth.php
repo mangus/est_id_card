@@ -43,6 +43,8 @@ class auth_plugin_est_id_card extends auth_plugin_base {
             $usertologin = $DB->get_record('user', $conditions, $fields='*');
             if ($usertologin !== false) {
                 $USER = complete_user_login($usertologin);
+                if (isset($_GET['password_recovery']))
+                    $SESSION->wantsurl = $CFG->wwwroot . '/login/change_password.php';
                 $goto = isset($SESSION->wantsurl) ? $SESSION->wantsurl : $CFG->wwwroot;
                 redirect($goto);
             } else
