@@ -43,7 +43,7 @@ class auth_plugin_est_id_card extends auth_plugin_base {
             $usertologin = $DB->get_record('user', $conditions, $fields='*');
             if ($usertologin !== false) {
                 $USER = complete_user_login($usertologin);
-                if (isset($_GET['password_recovery']))
+                if (optional_param('password_recovery'))
                     $SESSION->wantsurl = $CFG->wwwroot . '/login/change_password.php';
                 $goto = isset($SESSION->wantsurl) ? $SESSION->wantsurl : $CFG->wwwroot;
                 redirect($goto);
@@ -72,9 +72,9 @@ class auth_plugin_est_id_card extends auth_plugin_base {
     /** Shows nice error messages to user */
     function loginpage_hook() {
         global $errormsg;
-        if (isset($_GET['no_id_card_data'])) {
+        if (optional_param('no_id_card_data')) {
             $errormsg = get_string('no_id_card_data', 'auth_est_id_card');
-        } else if (isset($_GET['no_user_with_id'])) {
+        } else if (optional_param('no_user_with_id')) {
             $errormsg = get_string('no_user_with_id', 'auth_est_id_card');
         }
     }
