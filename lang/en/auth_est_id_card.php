@@ -10,6 +10,6 @@ $string['no_id_card_data'] = 'Could not read data form ID-card';
 
 // Other pages
 $string['login_with_id_card'] = 'Login with Estonian ID-card';
-$string['password_change'] = 'It is possible to change the password also when signing in with Estonian ID-card. Click the link below for that:';
+$string['password_change'] = 'It is possible to change the password also when signing in with Estonian ID-card. Click the link below for that. Note, that changing password is possible only if personal ID-number has been inserted into Moodle.';
 
 

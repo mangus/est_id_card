@@ -10,5 +10,5 @@ $string['no_id_card_data'] = 'Andmete lugemine ID-kaardilt ebaõnnestus';
 
 // Other pages
 $string['login_with_id_card'] = 'Logi sisse ID-kaardiga';
-$string['password_change'] = 'Salasõna on võimalik muuta ka ID-kaardiga sisselogides. Selleks kasuta all olevat linki:';
+$string['password_change'] = 'Salasõna on võimalik muuta ka ID-kaardiga sisselogides. Selleks kasuta all olevat linki. Salasõna muutmine ID-kaardiga on võimalik juhul, kui eelnevalt on Moodlesse sisestatud isikukood.';
 
