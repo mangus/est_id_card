@@ -1,1 +1,26 @@
 Estonin ID-card (http://id.ee) login auth module to Moodle (http://moodle.org).
+
+Real authentication takes place in file login.php (that file needs to have access to ID-card data)
+
+INSTALLATION
+
+1. Copy this module to directory <Your Moodle code root>/auth/est_id_card/
+
+2. Make sure the file <Your Moodle code root>/auth/est_id_card/login.php has access to ID-card data (this is Your web server configuration)
+
+3. Visit Moodle administration panel to install the module
+
+4. (Optional) To show up "Login with ID-card" button: comment out function loginpage_idp_list() in <Your Moodle code root>/auth/est_id_card/auth.php and/or edit other Moodle files
+
+Example edit of <Your Moodle code root>/blocks/login/block_login.php (requires "idkaart.gif" image in theme folder):
+
+<line 64>
++            // Login with Estonian ID-card: begin
++            $this->content->text .=
++                '<div style="padding-top:10px">'.
++                    '<a href="'.$CFG->wwwroot.'/auth/est_id_card/login.php">'.
++                        '<img src="'.$CFG->wwwroot.'/theme/image.php?theme=anomaly&image=idkaart" title="'.
++                            get_string('login_with_id_card', 'auth_est_id_card').'">'.
++                '</a></div>';
++            // Login with Estonian ID-card: end
+
