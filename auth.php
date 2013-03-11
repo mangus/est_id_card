@@ -8,6 +8,9 @@
  * Real authentication takes place in file login.php (that file needs to have access to ID-card data)
  *
  */
+if (!defined('MOODLE_INTERNAL')) {
+    die('Direct access to this script is forbidden.');    ///  It must be included from a Moodle page
+}
 
 require_once($CFG->dirroot.'/lib/authlib.php');
 
